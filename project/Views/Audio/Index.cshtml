@@ -1,0 +1,213 @@
+@model AudioUploadViewModel
+@{
+    ViewData["Title"] = "Reconocimiento de Audio";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body p-4">
+                    <h2 class="card-title text-center mb-4">
+                        <i class="bi bi-disc text-primary"></i>
+                        Identifica tu Canción
+                    </h2>
+
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            @Model.ErrorMessage
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <form asp-action="Upload" method="post" enctype="multipart/form-data" id="uploadForm">
+                        @Html.AntiForgeryToken()
+
+                        <div class="drop-zone" id="dropZone">
+                            <i class="bi bi-cloud-upload display-4 text-muted mb-3"></i>
+                            <h5 class="mb-3">Arrastra tu archivo aquí</h5>
+                            <p class="text-muted mb-3">o</p>
+                            <label for="audioFile" class="btn btn-primary">
+                                <i class="bi bi-folder2-open me-2"></i>
+                                Seleccionar Archivo
+                            </label>
+                            <input type="file"
+                                   class="d-none"
+                                   id="audioFile"
+                                   name="audioFile"
+                                   accept=".mp3,.wav"
+                                   required />
+                            <p class="text-muted small mt-3 mb-0">
+                                Formatos soportados: MP3, WAV (máx. 10MB)
+                            </p>
+                            <p id="fileName" class="text-primary mt-2 fw-bold"></p>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn" disabled>
+                                <i class="bi bi-search me-2"></i>
+                                Analizar Audio
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            @if (Model.IsSuccess && Model.Result != null)
+            {
+                <div class="result-card animate__animated animate__fadeIn">
+                    <h3 class="mb-4">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Canción Identificada
+                    </h3>
+
+                    @if (!string.IsNullOrEmpty(Model.Result.CoverArtUrl))
+                    {
+                        <div class="text-center mb-4">
+                            <img src="@Model.Result.CoverArtUrl"
+                                 alt="Portada"
+                                 class="img-fluid rounded shadow"
+                                 style="max-width: 300px;" />
+                        </div>
+                    }
+
+                    <div class="song-info-item">
+                        <strong><i class="bi bi-music-note me-2"></i>Título:</strong>
+                        <span class="float-end">@Model.Result.Title</span>
+                    </div>
+
+                    <div class="song-info-item">
+                        <strong><i class="bi bi-person me-2"></i>Artista:</strong>
+                        <span class="float-end">@Model.Result.Artist</span>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.Result.Album))
+                    {
+                        <div class="song-info-item">
+                            <strong><i class="bi bi-disc me-2"></i>Álbum:</strong>
+                            <span class="float-end">@Model.Result.Album</span>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.Result.ReleaseDate))
+                    {
+                        <div class="song-info-item">
+                            <strong><i class="bi bi-calendar-event me-2"></i>Fecha de Lanzamiento:</strong>
+                            <span class="float-end">@Model.Result.ReleaseDate</span>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.Result.Label))
+                    {
+                        <div class="song-info-item">
+                            <strong><i class="bi bi-building me-2"></i>Sello Discográfico:</strong>
+                            <span class="float-end">@Model.Result.Label</span>
+                        </div>
+                    }
+
+                    <div class="mt-4">
+                        @if (!string.IsNullOrEmpty(Model.Result.SpotifyUrl))
+                        {
+                            <a href="@Model.Result.SpotifyUrl"
+                               target="_blank"
+                               class="btn btn-success me-2">
+                                <i class="bi bi-spotify me-2"></i>Escuchar en Spotify
+                            </a>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.Result.AppleMusicUrl))
+                        {
+                            <a href="@Model.Result.AppleMusicUrl"
+                               target="_blank"
+                               class="btn btn-dark">
+                                <i class="bi bi-music-note-beamed me-2"></i>Escuchar en Apple Music
+                            </a>
+                        }
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.Result.Lyrics))
+                    {
+                        <div class="mt-4">
+                            <h5>
+                                <i class="bi bi-file-text me-2"></i>Letras
+                            </h5>
+                            <div class="lyrics-container">
+                                @Model.Result.Lyrics
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.Result.OtherVersions != null && Model.Result.OtherVersions.Any())
+                    {
+                        <div class="mt-4">
+                            <h5>
+                                <i class="bi bi-collection me-2"></i>Otras Versiones
+                            </h5>
+                            <ul class="list-group">
+                                @foreach (var version in Model.Result.OtherVersions)
+                                {
+                                    <li class="list-group-item">@version</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('audioFile');
+        const fileNameDisplay = document.getElementById('fileName');
+        const submitBtn = document.getElementById('submitBtn');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.add('dragover');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.remove('dragover');
+            }, false);
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files;
+                handleFileSelect();
+            }
+        }, false);
+
+        fileInput.addEventListener('change', handleFileSelect);
+
+        function handleFileSelect() {
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
+                submitBtn.disabled = false;
+            }
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', function() {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analizando...';
+        });
+    </script>
+}
