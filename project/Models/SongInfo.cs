@@ -9,9 +9,10 @@ namespace AudioRecognitionApp.Models
         public string Label { get; set; } = string.Empty;
         public string SpotifyUrl { get; set; } = string.Empty;
         public string AppleMusicUrl { get; set; } = string.Empty;
-        public string AmazonUrl { get; set; } = string.Empty;
         public string Lyrics { get; set; } = string.Empty;
         public List<string> OtherVersions { get; set; } = new List<string>();
         public string CoverArtUrl { get; set; } = string.Empty;
+        public string? AmazonUrl { get; set; }
+
     }
 }

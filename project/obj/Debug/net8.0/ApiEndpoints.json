@@ -73,5 +73,45 @@
         "StatusCode": 500
       }
     ]
+  },
+  {
+    "ContainingType": "AudioRecognitionApp.Controllers.MicrophoneController",
+    "Method": "RecognizeFromMicrophone",
+    "RelativePath": "api/Microphone/recognize",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AudioRecognitionApp.Models.MicrophoneAudioRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AudioRecognitionApp.Models.ApiResponse\u00601[[AudioRecognitionApp.Models.SongInfo, AudioRecognitionApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
   }
 ]

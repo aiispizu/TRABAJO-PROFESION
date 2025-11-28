@@ -1,222 +1,672 @@
-@model AudioUploadViewModel
+@model AudioRecognitionApp.Models.AudioUploadViewModel
 @{
     ViewData["Title"] = "Reconocimiento de Audio";
 }
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-body p-4">
-                    <h2 class="card-title text-center mb-4">
-                        <i class="bi bi-disc text-primary"></i>
-                        Identifica tu Canción
-                    </h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background:#ffffff;
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        .main-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: none;
+        }
+        .nav-tabs .nav-link {
+            border-radius: 10px 10px 0 0;
+            font-weight: 500;
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #667eea;
+            color: white;
+        }
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+        .upload-area:hover {
+            border-color: #764ba2;
+            background-color: #e9ecef;
+        }
+        .btn-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }.result-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .album-cover {
+            max-width: 250px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            display: block;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .info-item i {
+            color: #667eea;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        .Model.Result?.Lyrics-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            max-height: 500px;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .Model.Result?.Lyrics-container h5 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .Model.Result?.Lyrics-text {
+            white-space: pre-wrap;
+            line-height: 1.8;
+            color: #333;
+            font-size: 1rem;
+        }
+        .platform-btn {
+            margin: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        .platform-btn:hover {
+            transform: translateY(-2px);
+        }
+        .spotify-btn {
+            background-color: #1DB954;
+            color: white;
+        }
+        .apple-btn {
+            background-color: #000000;
+            color: white;
+        }
+        .amazon-btn {
+            background-color: #FF9900;
+            color: white;
+        }.loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .loading-spinner.show {
+            display: block;
+        }
+        #audioVisualizer {
+            display: none;
+            width: 100%;
+            height: 100px;
+            margin: 1rem 0;
+        }
+        .recording-indicator {
+            display: none;
+            color: #dc3545;
+            font-weight: 500;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .recording-indicator.show {
+            display: block;
+        }
+        .recording-indicator i {
+            animation: pulse 1.5s infinite;
+        }
+        @@keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .btn-amazon {
+    background: linear-gradient(135deg, #FF9900 0%, #FF7700 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+}
 
-                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-                    {
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                            @Model.ErrorMessage
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    }
+.btn-amazon:hover {
+    background: linear-gradient(135deg, #FF7700 0%, #FF5500 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+    color: white;
+}
 
-                    <form asp-action="Upload" method="post" enctype="multipart/form-data" id="uploadForm">
-                        @Html.AntiForgeryToken()
+.btn-amazon i {
+    font-size: 1.2em;
+}
+    </style>
+</head><body>
+    <div class="main-container">
+        <div class="text-center mb-4">
+            <h1 class="text-white"><i class="fas fa-music"></i> Identificador de Canciones</h1>
+            <p class="text-white">Sube un archivo o graba desde tu micrófono</p>
+        </div>
 
-                        <div class="drop-zone" id="dropZone">
-                            <i class="bi bi-cloud-upload display-4 text-muted mb-3"></i>
-                            <h5 class="mb-3">Arrastra tu archivo aquí</h5>
-                            <p class="text-muted mb-3">o</p>
-                            <label for="audioFile" class="btn btn-primary">
-                                <i class="bi bi-folder2-open me-2"></i>
-                                Seleccionar Archivo
-                            </label>
-                            <input type="file"
-                                   class="d-none"
-                                   id="audioFile"
-                                   name="audioFile"
-                                   accept=".mp3,.wav"
-                                   required />
-                            <p class="text-muted small mt-3 mb-0">
-                                Formatos soportados: MP3, WAV (máx. 10MB)
-                            </p>
-                            <p id="fileName" class="text-primary mt-2 fw-bold"></p>
-                        </div>
+        <div class="card">
+            <div class="card-body p-4">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="upload-tab" data-bs-toggle="tab" data-bs-target="#upload" 
+                                type="button" role="tab">
+                            <i class="fas fa-file-upload"></i> Subir Archivo
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="microphone-tab" data-bs-toggle="tab" data-bs-target="#microphone" 
+                                type="button" role="tab">
+                            <i class="fas fa-microphone"></i> Usar Micrófono
+                        </button>
+                    </li>
+                </ul>
 
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn" disabled>
-                                <i class="bi bi-search me-2"></i>
-                                Analizar Audio
+                <!-- Tab Content -->
+                <div class="tab-content" id="myTabContent">
+                    <!-- Upload Tab -->
+                    <div class="tab-pane fade show active" id="upload" role="tabpanel">
+                        @using (Html.BeginForm("Upload", "Audio", FormMethod.Post, new { enctype = "multipart/form-data", id = "uploadForm" }))
+                        {
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+                                <h5>Arrastra tu archivo aquí</h5>
+                                <p class="text-muted mb-3">o</p>
+                                <label for="audioFile" class="btn btn-custom">
+                                    <i class="fas fa-folder-open"></i> Seleccionar Archivo
+                                </label>
+                                <input type="file" id="audioFile" name="audioFile" accept=".mp3,.wav" style="display: none;">
+                                <p class="text-muted mt-3 small">Formatos soportados: MP3, WAV (máx. 50MB)</p>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-custom btn-lg" id="uploadBtn">
+                                    <i class="fas fa-search"></i> Analizar Audio
+                                </button>
+                            </div>
+                        }
+                    </div><!-- Microphone Tab -->
+                    <div class="tab-pane fade" id="microphone" role="tabpanel">
+                        <div class="text-center">
+                            <i class="fas fa-microphone fa-3x text-muted mb-4"></i>
+                            <h5>Graba desde tu micrófono</h5>
+                            <p class="text-muted mb-4">Haz clic en el botón para comenzar a grabar</p>
+                            
+                            <canvas id="audioVisualizer"></canvas>
+                            <div class="recording-indicator" id="recordingIndicator">
+    <i class="fas fa-circle"></i> Grabando... <span id="recordingTime">0:00</span>
+</div>
+                            
+                            <button type="button" class="btn btn-custom btn-lg" id="recordBtn">
+                                <i class="fas fa-microphone"></i> Iniciar Grabación
                             </button>
+                            <button type="button" class="btn btn-danger btn-lg" id="stopBtn" style="display: none;">
+                                <i class="fas fa-stop"></i> Detener Grabación
+                            </button>
+                           <button type="button" class="btn btn-custom btn-lg mt-3" id="analyzeRecordingBtn" style="display: none;">
+    <i class="fas fa-search"></i> Analizar Grabación
+</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
 
-            @if (Model.IsSuccess && Model.Result != null)
-            {
-                <div class="result-card animate__animated animate__fadeIn">
-                    <h3 class="mb-4">
-                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                        Canción Identificada
-                    </h3>
-
-                    @if (!string.IsNullOrEmpty(Model.Result.CoverArtUrl))
-                    {
-                        <div class="text-center mb-4">
-                            <img src="@Model.Result.CoverArtUrl"
-                                 alt="Portada"
-                                 class="img-fluid rounded shadow"
-                                 style="max-width: 300px;" />
-                        </div>
-                    }
-
-                    <div class="song-info-item">
-                        <strong><i class="bi bi-music-note me-2"></i>Título:</strong>
-                        <span class="float-end">@Model.Result.Title</span>
+                <!-- Loading Spinner -->
+                <div class="loading-spinner" id="loadingSpinner">
+                    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="visually-hidden">Cargando...</span>
                     </div>
-
-                    <div class="song-info-item">
-                        <strong><i class="bi bi-person me-2"></i>Artista:</strong>
-                        <span class="float-end">@Model.Result.Artist</span>
-                    </div>
-
-                    @if (!string.IsNullOrEmpty(Model.Result.Album))
-                    {
-                        <div class="song-info-item">
-                            <strong><i class="bi bi-disc me-2"></i>Álbum:</strong>
-                            <span class="float-end">@Model.Result.Album</span>
+                    <p class="mt-3 text-muted">Analizando audio...</p>
+                </div><!-- Results -->
+                @if (Model.Result != null)
+                {
+                    <div class="result-card">
+                        <div class="alert alert-success" role="alert">
+                            <i class="fas fa-check-circle"></i> <strong>Canción Identificada</strong>
                         </div>
-                    }
 
-                    @if (!string.IsNullOrEmpty(Model.Result.ReleaseDate))
-                    {
-                        <div class="song-info-item">
-                            <strong><i class="bi bi-calendar-event me-2"></i>Fecha de Lanzamiento:</strong>
-                            <span class="float-end">@Model.Result.ReleaseDate</span>
-                        </div>
-                    }
-
-                    @if (!string.IsNullOrEmpty(Model.Result.Label))
-                    {
-                        <div class="song-info-item">
-                            <strong><i class="bi bi-building me-2"></i>Sello Discográfico:</strong>
-                            <span class="float-end">@Model.Result.Label</span>
-                        </div>
-                    }
-
-                    <div class="mt-4">
-                        @if (!string.IsNullOrEmpty(Model.Result.SpotifyUrl))
-                        {
-                            <a href="@Model.Result.SpotifyUrl"
-                               target="_blank"
-                               class="btn btn-success me-2 mb-2">
-                                <i class="bi bi-spotify me-2"></i>Escuchar en Spotify
-                            </a>
-                        }
-
-                        @if (!string.IsNullOrEmpty(Model.Result.AppleMusicUrl))
-                        {
-                            <a href="@Model.Result.AppleMusicUrl"
-                               target="_blank"
-                               class="btn btn-dark me-2 mb-2">
-                                <i class="bi bi-music-note-beamed me-2"></i>Escuchar en Apple Music
-                            </a>
-                        }
-
-                        @if (!string.IsNullOrEmpty(Model.Result.AmazonUrl))
-                        {
-                            <a href="@Model.Result.AmazonUrl"
-                               target="_blank"
-                               class="btn btn-warning mb-2">
-                                <i class="bi bi-cart-fill me-2"></i>Comprar en Amazon
-                            </a>
-                        }
-                    </div>
-
-                    @if (!string.IsNullOrEmpty(Model.Result.Lyrics))
-                    {
-                        <div class="mt-4">
-                            <h5>
-                                <i class="bi bi-file-text me-2"></i>Letras
-                            </h5>
-                            <div class="lyrics-container">
-                                @Model.Result.Lyrics
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4">
+                                @if (!string.IsNullOrEmpty(Model.Result.CoverArtUrl))
+                                {
+                                    <img src="@Model.Result.CoverArtUrl" alt="Portada del álbum" class="album-cover">
+                                }
+                                else
+                                {
+                                    <div class="album-cover d-flex align-items-center justify-content-center bg-secondary">
+                                        <i class="fas fa-music fa-4x text-white"></i>
+                                    </div>
+                                }
+                            </div>
+                            
+                            <div class="col-md-8">
+                                <div class="info-item">
+                                    <i class="fas fa-music"></i>
+                                    <div>
+                                        <strong>Título:</strong><br>
+                                        @Model.Result.Title
+                                    </div>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <i class="fas fa-user"></i>
+                                    <div>
+                                        <strong>Artista:</strong><br>
+                                        @Model.Result.Artist
+                                    </div>
+                                </div>
+                                
+                                @if (!string.IsNullOrEmpty(Model.Result.Album))
+                                {
+                                    <div class="info-item">
+                                        <i class="fas fa-compact-disc"></i>
+                                        <div>
+                                            <strong>Álbum:</strong><br>
+                                            @Model.Result.Album
+                                        </div>
+                                    </div>
+                                }@if (!string.IsNullOrEmpty(Model.Result.ReleaseDate))
+                                {
+                                    <div class="info-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <div>
+                                            <strong>Fecha de Lanzamiento:</strong><br>
+                                            @Model.Result.ReleaseDate
+                                        </div>
+                                    </div>
+                                }
+                                
+                                @if (!string.IsNullOrEmpty(Model.Result.Label))
+                                {
+                                    <div class="info-item">
+                                        <i class="fas fa-tag"></i>
+                                        <div>
+                                            <strong>Sello Discográfico:</strong><br>
+                                            @Model.Result.Label
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </div>
-                    }
 
-                    @if (Model.Result.OtherVersions != null && Model.Result.OtherVersions.Any())
-                    {
-                        <div class="mt-4">
-                            <h5>
-                                <i class="bi bi-collection me-2"></i>Otras Versiones
-                            </h5>
-                            <ul class="list-group">
-                                @foreach (var version in Model.Result.OtherVersions)
-                                {
-                                    <li class="list-group-item">@version</li>
-                                }
-                            </ul>
-                        </div>
-                    }
-                </div>
-            }
+                        <!-- Enlaces a plataformas -->
+                        <div class="text-center mt-4">
+                            @if (!string.IsNullOrEmpty(Model.Result.SpotifyUrl))
+                            {
+                                <a href="@Model.Result.SpotifyUrl" target="_blank" class="platform-btn spotify-btn">
+                                    <i class="fab fa-spotify"></i> Escuchar en Spotify
+                                </a>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.Result.AppleMusicUrl))
+                            {
+                                <a href="@Model.Result.AppleMusicUrl" target="_blank" class="platform-btn apple-btn">
+                                    <i class="fab fa-apple"></i> Escuchar en Apple Music
+                                </a>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.Result.AmazonUrl))
+{
+    <a href="@Model.Result.AmazonUrl" target="_blank" class="btn btn-amazon" rel="noopener noreferrer">
+        <i class="fab fa-amazon"></i> Comprar en Amazon
+    </a>
+}
+                            
+                        </div><!-- SECCIÓN DE LETRAS -->
+                        @if (!string.IsNullOrEmpty(Model.Result?.Lyrics))
+                        {
+                            <div class="Model.Result?.Lyrics-container">
+                                <h5><i class="fas fa-file-alt"></i> Letra de la Canción</h5>
+                                <div class="Model.Result?.Lyrics-text">@Model.Result?.Lyrics-text</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="Model.Result?.Lyrics-container">
+                                <h5><i class="fas fa-file-alt"></i> Letra de la Canción</h5>
+                                <p class="text-muted text-center">
+                                    <i class="fas fa-exclamation-circle"></i> 
+                                    No se pudieron obtener las letras para esta canción.
+                                </p>
+                            </div>
+                        }
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="alert alert-danger mt-4" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i> @Model.ErrorMessage
+
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</div>
 
-@section Scripts {
     <script>
-        const dropZone = document.getElementById('dropZone');
-        const fileInput = document.getElementById('audioFile');
-        const fileNameDisplay = document.getElementById('fileName');
-        const submitBtn = document.getElementById('submitBtn');
+        // Drag and Drop
+        const uploadArea = document.getElementById('uploadArea');
+        const audioFileInput = document.getElementById('audioFile');
+        const uploadForm = document.getElementById('uploadForm');
+        const loadingSpinner = document.getElementById('loadingSpinner');
 
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            dropZone.addEventListener(eventName, preventDefaults, false);
-        });
+        // Mostrar nombre del archivo seleccionado
+        let fileNameDisplay = null;
 
-        function preventDefaults(e) {
+        uploadArea.addEventListener('dragover', (e) => {
             e.preventDefault();
-            e.stopPropagation();
-        }
-
-        ['dragenter', 'dragover'].forEach(eventName => {
-            dropZone.addEventListener(eventName, () => {
-                dropZone.classList.add('dragover');
-            }, false);
+            uploadArea.style.borderColor = '#764ba2';
+            uploadArea.style.backgroundColor = '#e9ecef';
         });
 
-        ['dragleave', 'drop'].forEach(eventName => {
-            dropZone.addEventListener(eventName, () => {
-                dropZone.classList.remove('dragover');
-            }, false);
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#667eea';
+            uploadArea.style.backgroundColor = '#f8f9fa';
         });
 
-        dropZone.addEventListener('drop', (e) => {
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#667eea';
+            uploadArea.style.backgroundColor = '#f8f9fa';
+            
             const files = e.dataTransfer.files;
             if (files.length > 0) {
-                fileInput.files = files;
-                handleFileSelect();
+                audioFileInput.files = files;
+                showFileName(files[0].name);
             }
-        }, false);
+        });
 
-        fileInput.addEventListener('change', handleFileSelect);
+        audioFileInput.addEventListener('change', () => {
+            if (audioFileInput.files.length > 0) {
+                showFileName(audioFileInput.files[0].name);
+            }
+        });
 
-        function handleFileSelect() {
-            if (fileInput.files.length > 0) {
-                const file = fileInput.files[0];
-                fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
-                submitBtn.disabled = false;
+        function showFileName(fileName) {
+            // Remover el display anterior si existe
+            if (fileNameDisplay) {
+                fileNameDisplay.remove();
+            }
+            
+            // Crear nuevo elemento para mostrar el nombre
+            fileNameDisplay = document.createElement('p');
+            fileNameDisplay.className = 'text-success mt-3';
+            fileNameDisplay.innerHTML = '<i class="fas fa-check-circle"></i> Archivo seleccionado: <strong>' + fileName + '</strong>';
+            
+            // Insertarlo después del área de upload
+            uploadArea.parentNode.insertBefore(fileNameDisplay, uploadArea.nextSibling);
+        }
+
+        uploadForm.addEventListener('submit', () => {
+            loadingSpinner.classList.add('show');
+        });
+
+        // Microphone Recording
+        let mediaRecorder;
+        let audioChunks = [];
+        let audioContext;
+        let analyser;
+        let dataArray;
+        let canvas;
+        let canvasContext;
+        let recordingStartTime;
+        let updateTimer;
+        let recordedBlob = null; // Guardar el audio grabado
+
+        const recordBtn = document.getElementById('recordBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const visualizer = document.getElementById('audioVisualizer');
+        const recordingIndicator = document.getElementById('recordingIndicator');
+
+        // Obtener referencia al botón que ya existe en el HTML
+const analyzeRecordingBtn = document.getElementById('analyzeRecordingBtn');
+
+        recordBtn.addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+                recordedBlob = null;
+
+                // Contador de tiempo
+                recordingStartTime = Date.now();
+                const recordingTimeDisplay = document.getElementById('recordingTime');
+                
+                updateTimer = setInterval(() => {
+                    const elapsed = Math.floor((Date.now() - recordingStartTime) / 1000);
+                    const minutes = Math.floor(elapsed / 60);
+                    const seconds = elapsed % 60;
+                    if (recordingTimeDisplay) {
+                        recordingTimeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    }
+                }, 1000);
+
+                // Setup audio visualizer
+                audioContext = new AudioContext();
+                analyser = audioContext.createAnalyser();
+                const source = audioContext.createMediaStreamSource(stream);
+                source.connect(analyser);
+                analyser.fftSize = 256;
+                
+                const bufferLength = analyser.frequencyBinCount;
+                dataArray = new Uint8Array(bufferLength);
+                
+                canvas = visualizer;
+                canvasContext = canvas.getContext('2d');
+                canvas.width = canvas.offsetWidth;
+                canvas.height = 100;
+                
+                visualizer.style.display = 'block';
+                recordingIndicator.classList.add('show');
+                
+                draw();
+
+                mediaRecorder.ondataavailable = (event) => {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    clearInterval(updateTimer);
+                    visualizer.style.display = 'none';
+                    recordingIndicator.classList.remove('show');
+                    
+                    // Guardar el blob de audio
+                    recordedBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    
+                    // Mostrar mensaje de grabación lista
+                    const recordingMessage = document.createElement('p');
+                    recordingMessage.className = 'text-success mt-3';
+                    recordingMessage.id = 'recordingMessage';
+                    recordingMessage.innerHTML = '<i class="fas fa-check-circle"></i> Grabación completada. Haz clic en "Analizar Grabación" para procesar.';
+                    
+                    // Remover mensaje anterior si existe
+                    const oldMessage = document.getElementById('recordingMessage');
+                    if (oldMessage) {
+                        oldMessage.remove();
+                    }
+                    
+                    stopBtn.parentNode.appendChild(recordingMessage);
+                    
+                    // Mostrar botón de analizar
+                    analyzeRecordingBtn.style.display = 'inline-block';
+                };
+
+                mediaRecorder.start();
+                recordBtn.style.display = 'none';
+                stopBtn.style.display = 'inline-block';
+                analyzeRecordingBtn.style.display = 'none';
+
+            } catch (error) {
+                console.error('Error al acceder al micrófono:', error);
+                alert('No se pudo acceder al micrófono. Por favor, verifica los permisos.');
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                mediaRecorder.stream.getTracks().forEach(track => track.stop());
+            }
+            recordBtn.style.display = 'inline-block';
+            stopBtn.style.display = 'none';
+        });
+
+        // Analizar la grabación cuando se hace clic en el botón
+       analyzeRecordingBtn.addEventListener('click', () => {
+    if (!recordedBlob) {
+        alert('No hay grabación para analizar');
+        return;
+    }
+
+    // Guardar en sessionStorage que viene del micrófono
+    sessionStorage.setItem('fromMicrophone', 'true');
+
+    // Crear un input file temporal
+    const dataTransfer = new DataTransfer();
+    const file = new File([recordedBlob], 'recording.wav', { type: 'audio/wav' });
+    dataTransfer.items.add(file);
+
+    // Asignar el archivo al input del formulario de upload
+    const uploadFileInput = document.getElementById('audioFile');
+    uploadFileInput.files = dataTransfer.files;
+
+    // Mostrar el spinner
+    loadingSpinner.classList.add('show');
+    analyzeRecordingBtn.disabled = true;
+
+    // Enviar el formulario
+    uploadForm.submit();
+});
+        function draw() {
+            if (!mediaRecorder || mediaRecorder.state !== 'recording') return;
+            
+            requestAnimationFrame(draw);
+            
+            analyser.getByteFrequencyData(dataArray);
+            
+            canvasContext.fillStyle = 'rgb(248, 249, 250)';
+            canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+            
+            const barWidth = (canvas.width / dataArray.length) * 2.5;
+            let x = 0;
+            
+            for (let i = 0; i < dataArray.length; i++) {
+                const barHeight = (dataArray[i] / 255) * canvas.height;
+                
+                const gradient = canvasContext.createLinearGradient(0, canvas.height - barHeight, 0, canvas.height);
+                gradient.addColorStop(0, '#667eea');
+                gradient.addColorStop(1, '#764ba2');
+                
+                canvasContext.fillStyle = gradient;
+                canvasContext.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+                
+                x += barWidth + 1;
             }
         }
 
-        document.getElementById('uploadForm').addEventListener('submit', function() {
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analizando...';
+        // Limpiar resultados al cambiar de pestaña
+        const uploadTab = document.getElementById('upload-tab');
+        const microphoneTab = document.getElementById('microphone-tab');
+
+        uploadTab.addEventListener('click', () => {
+            const resultCard = document.querySelector('.result-card');
+            if (resultCard) {
+                resultCard.style.display = 'none';
+            }
+            // Limpiar archivo seleccionado
+            if (fileNameDisplay) {
+                fileNameDisplay.remove();
+                fileNameDisplay = null;
+            }
+            audioFileInput.value = '';
         });
+
+        microphoneTab.addEventListener('click', () => {
+            const resultCard = document.querySelector('.result-card');
+            if (resultCard) {
+                resultCard.style.display = 'none';
+            }
+            // Limpiar grabación
+            recordedBlob = null;
+            const recordingMessage = document.getElementById('recordingMessage');
+            if (recordingMessage) {
+                recordingMessage.remove();
+            }
+            analyzeRecordingBtn.style.display = 'none';
+            recordBtn.style.display = 'inline-block';
+            stopBtn.style.display = 'none';
+        });
+// Al cargar la página, verificar si viene del micrófono
+window.addEventListener('DOMContentLoaded', () => {
+    const fromMicrophone = sessionStorage.getItem('fromMicrophone');
+    
+    if (fromMicrophone === 'true') {
+        // Activar la pestaña del micrófono
+        const microphoneTab = document.getElementById('microphone-tab');
+        const microphonePane = document.getElementById('microphone');
+        const uploadTab = document.getElementById('upload-tab');
+        const uploadPane = document.getElementById('upload');
+        
+        if (microphoneTab && microphonePane) {
+            microphoneTab.classList.add('active');
+            microphonePane.classList.add('show', 'active');
+            uploadTab.classList.remove('active');
+            uploadPane.classList.remove('show', 'active');
+        }
+        
+        // Limpiar el flag
+        sessionStorage.removeItem('fromMicrophone');
+    }
+});
     </script>
-}
+
+</body>
+</html>

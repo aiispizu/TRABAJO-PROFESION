@@ -73,6 +73,7 @@
             border-radius: 12px;
             padding: 24px;
             margin-top: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
         }
 
         .song-info-item {
@@ -94,6 +95,113 @@
             font-size: 0.95rem;
             line-height: 1.6;
         }
+
+        /* Estilos para la sección del micrófono */
+        .microphone-zone {
+            padding: 40px 20px;
+        }
+
+        .microphone-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @@keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        .recording-timer {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .microphone-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Animación de grabación activa */
+        .recording-active .microphone-animation {
+            animation: recording-pulse 1s ease-in-out infinite;
+        }
+
+        @@keyframes recording-pulse {
+            0%, 100% {
+                transform: scale(1);
+                color: #dc2626;
+            }
+            50% {
+                transform: scale(1.2);
+                color: #ef4444;
+            }
+        }
+
+        /* Tabs personalizadas */
+        .nav-tabs {
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            color: #64748b;
+            font-weight: 500;
+            padding: 12px 24px;
+            transition: all 0.3s;
+        }
+
+        .nav-tabs .nav-link:hover {
+            color: var(--primary-color);
+            background-color: #f1f5f9;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            background-color: white;
+            border-bottom: 3px solid var(--primary-color);
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Animaciones */
+        .animate__animated {
+            animation-duration: 0.6s;
+        }
+
+        .animate__fadeIn {
+            animation-name: fadeIn;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividad */
+        @@media (max-width: 768px) {
+            .microphone-controls {
+                flex-direction: column;
+            }
+
+            .microphone-controls .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -112,7 +220,7 @@
 
     <footer class="text-center text-muted py-4 mt-5">
         <div class="container">
-            <p>&copy; 2024 - AudioRecognitionApp</p>
+            <p>&copy; 2024 - AudioRecognitionApp - Con reconocimiento por micrófono</p>
         </div>
     </footer>
 
