@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JlGeF7LwhBs=",
+  "dgSpecHash": "wsxXDTu2PQk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
+  "projectFilePath": "C:\\Users\\clara\\OneDrive\\Escritorio\\AudioRecognitionApp\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\clara\\.nuget\\packages\\htmlagilitypack\\1.12.4\\htmlagilitypack.1.12.4.nupkg.sha512",
     "C:\\Users\\clara\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.0\\microsoft.aspnetcore.jsonpatch.8.0.0.nupkg.sha512",
