@@ -1,49 +1,61 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\",
+  "WorkspaceRootPath": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\services\\lyricsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\services\\lyricsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\services\\lyricsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\services\\ilyricsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\services\\ilyricsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\services\\audiorecognitionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\services\\audiorecognitionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\views\\audio\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\views\\audio\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\controllers\\audiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\controllers\\audiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\controllers\\audiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\models\\songinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\services\\audiorecognitionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\services\\audiorecognitionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\views\\audio\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\views\\audio\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\models\\songinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\models\\songinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\audiorecognitionapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\audiorecognitionapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\audiorecognitionapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\audiorecognitionapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\audiorecognitionapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\audiorecognitionapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\controllers\\microphonecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\controllers\\microphonecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\controllers\\microphonecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\ainho\\source\\repos\\trabajo-tt2\\project\\models\\microphoneaudiorequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|c:\\users\\clara\\onedrive\\escritorio\\trabajo-tt2\\project\\models\\microphoneaudiorequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34B7138E-98A0-E7D2-FBD4-AC9CB009CDF2}|project\\AudioRecognitionApp.csproj|solutionrelative:project\\models\\microphoneaudiorequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -54,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,35 +86,47 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ILyricsService.cs",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Services\\ILyricsService.cs",
+              "RelativeDocumentMoniker": "project\\Services\\ILyricsService.cs",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Services\\ILyricsService.cs",
+              "RelativeToolTip": "project\\Services\\ILyricsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T12:40:09.882Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "project\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "project\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAALoAAAAAAAAAAAAAAMoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-02T11:53:27.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AudioController.cs",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Controllers\\AudioController.cs",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Controllers\\AudioController.cs",
               "RelativeDocumentMoniker": "project\\Controllers\\AudioController.cs",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Controllers\\AudioController.cs",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Controllers\\AudioController.cs",
               "RelativeToolTip": "project\\Controllers\\AudioController.cs",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAAAFMAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAGkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T16:43:34.969Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Views\\Audio\\Index.cshtml",
-              "RelativeDocumentMoniker": "project\\Views\\Audio\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Views\\Audio\\Index.cshtml",
-              "RelativeToolTip": "project\\Views\\Audio\\Index.cshtml",
-              "ViewState": "AgIAAIoCAAAAAAAAAAAAAL8AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-21T16:08:27.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "AudioRecognitionService.cs",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Services\\AudioRecognitionService.cs",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Services\\AudioRecognitionService.cs",
               "RelativeDocumentMoniker": "project\\Services\\AudioRecognitionService.cs",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Services\\AudioRecognitionService.cs",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Services\\AudioRecognitionService.cs",
               "RelativeToolTip": "project\\Services\\AudioRecognitionService.cs",
               "ViewState": "AgIAAOUAAAAAAAAAAAAAwPoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -112,22 +136,46 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "LyricsService.cs",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Services\\LyricsService.cs",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Services\\LyricsService.cs",
               "RelativeDocumentMoniker": "project\\Services\\LyricsService.cs",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Services\\LyricsService.cs",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Services\\LyricsService.cs",
               "RelativeToolTip": "project\\Services\\LyricsService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T16:30:08.588Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\README.md",
+              "RelativeDocumentMoniker": "project\\README.md",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\README.md",
+              "RelativeToolTip": "project\\README.md",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAAH8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-02T11:53:20.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Views\\Audio\\Index.cshtml",
+              "RelativeDocumentMoniker": "project\\Views\\Audio\\Index.cshtml",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Views\\Audio\\Index.cshtml",
+              "RelativeToolTip": "project\\Views\\Audio\\Index.cshtml",
+              "ViewState": "AgIAAIoCAAAAAAAAAAAAAL8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-21T16:08:27.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "SongInfo.cs",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Models\\SongInfo.cs",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Models\\SongInfo.cs",
               "RelativeDocumentMoniker": "project\\Models\\SongInfo.cs",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Models\\SongInfo.cs",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Models\\SongInfo.cs",
               "RelativeToolTip": "project\\Models\\SongInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -135,11 +183,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\appsettings.json",
               "RelativeDocumentMoniker": "project\\appsettings.json",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\appsettings.json",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\appsettings.json",
               "RelativeToolTip": "project\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -147,11 +195,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Program.cs",
               "RelativeDocumentMoniker": "project\\Program.cs",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Program.cs",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Program.cs",
               "RelativeToolTip": "project\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -159,22 +207,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "AudioRecognitionApp",
-              "DocumentMoniker": "C:\\Users\\ainho\\Source\\Repos\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
               "RelativeDocumentMoniker": "project\\AudioRecognitionApp.csproj",
-              "ToolTip": "C:\\Users\\ainho\\Source\\Repos\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
               "RelativeToolTip": "project\\AudioRecognitionApp.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-11-21T15:19:10.949Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "MicrophoneController.cs",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Controllers\\MicrophoneController.cs",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Controllers\\MicrophoneController.cs",
               "RelativeDocumentMoniker": "project\\Controllers\\MicrophoneController.cs",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Controllers\\MicrophoneController.cs",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Controllers\\MicrophoneController.cs",
               "RelativeToolTip": "project\\Controllers\\MicrophoneController.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAAYwFwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -182,11 +230,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "AudioRecognitionApp.csproj",
-              "DocumentMoniker": "C:\\Users\\ainho\\Source\\Repos\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
               "RelativeDocumentMoniker": "project\\AudioRecognitionApp.csproj",
-              "ToolTip": "C:\\Users\\ainho\\Source\\Repos\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\AudioRecognitionApp.csproj",
               "RelativeToolTip": "project\\AudioRecognitionApp.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -194,11 +242,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "MicrophoneAudioRequest.cs",
-              "DocumentMoniker": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Models\\MicrophoneAudioRequest.cs",
+              "DocumentMoniker": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Models\\MicrophoneAudioRequest.cs",
               "RelativeDocumentMoniker": "project\\Models\\MicrophoneAudioRequest.cs",
-              "ToolTip": "C:\\Users\\ainho\\source\\repos\\TRABAJO-TT2\\project\\Models\\MicrophoneAudioRequest.cs",
+              "ToolTip": "C:\\Users\\clara\\OneDrive\\Escritorio\\TRABAJO-TT2\\project\\Models\\MicrophoneAudioRequest.cs",
               "RelativeToolTip": "project\\Models\\MicrophoneAudioRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

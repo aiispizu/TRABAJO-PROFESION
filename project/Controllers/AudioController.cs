@@ -104,9 +104,18 @@ namespace AudioRecognitionApp.Controllers
 
                         // ↓↓↓ AÑADIR ESTAS LÍNEAS AQUÍ ↓↓↓
                         // Generar URL de Amazon
-                        var albumPart = !string.IsNullOrEmpty(songInfo.Album) ? $" {songInfo.Album}" : "";
-                        songInfo.AmazonUrl = $"https://www.amazon.es/s?k={Uri.EscapeDataString($"{songInfo.Artist} {songInfo.Title}{albumPart} CD")}&i=popular";
-                        _logger.LogInformation($"Amazon URL generada: {songInfo.AmazonUrl}");
+                        // Generar URL de Amazon (solo álbum)
+                        if (!string.IsNullOrEmpty(songInfo.Album))
+                        {
+                            songInfo.AmazonUrl = $"https://www.amazon.es/s?k={Uri.EscapeDataString($"{songInfo.Artist} {songInfo.Album}")}&i=popular";
+                            _logger.LogInformation($"Amazon URL generada: {songInfo.AmazonUrl}");
+                        }
+                        else
+                        {
+                            // Si no hay álbum, usar artista + título
+                            songInfo.AmazonUrl = $"https://www.amazon.es/s?k={Uri.EscapeDataString($"{songInfo.Artist} {songInfo.Title}")}&i=popular";
+                            _logger.LogInformation($"Amazon URL generada (sin álbum): {songInfo.AmazonUrl}");
+                        }
                         // ↑↑↑ HASTA AQUÍ ↑↑↑
 
                         viewModel.Result = songInfo;

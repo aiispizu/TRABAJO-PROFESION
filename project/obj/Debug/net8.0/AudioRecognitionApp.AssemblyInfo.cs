@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AudioRecognitionApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45abee1e66211d4e2674d3e3f95459b5dfb92d3d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea6203e370d58e99fa9396bd88e9d672208a8fa1")]
 [assembly: System.Reflection.AssemblyProductAttribute("AudioRecognitionApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AudioRecognitionApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
